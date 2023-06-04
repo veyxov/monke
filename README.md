@@ -1,6 +1,6 @@
-# Monke programming language
+# Monke programming language 🙈
 
-## Tokenizer
+## Tokenizer (lexer)
 Extract keywords, literals and identifiers
 
 # TODO
