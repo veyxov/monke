@@ -13,12 +13,12 @@ const (
 	ASSIGN    = "="
 	PLUS      = "+"
 	COMMA     = ","
-	semicolon = ";"
+	SEMICOLON = ";"
 
-	lparen = "("
-	rparen = ")"
-	lbrace = "{"
-	rbrace = "}"
+	LPAREN = "("
+	RPAREN = ")"
+	LBRACE = "{"
+	RBRACE = "}"
 
 	EOF      = "EOF"
 	IDENT    = "IDENT"
