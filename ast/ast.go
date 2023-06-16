@@ -26,8 +26,16 @@ type LetStatement struct {
 	Value Statement
 }
 
+type ReturnStatement struct {
+	Token       token.Token // return
+	ReturnValue Expression
+}
+
+func (rs *ReturnStatement) statementNode()       {}
+func (rs *ReturnStatement) TokenLiteral() string { return rs.Token.Literal }
+
 // Implement the interface
-func (ls *LetStatement) statementNode() {}
+func (ls *LetStatement) statementNode()       {}
 func (ls *LetStatement) TokenLiteral() string { return ls.Token.Literal }
 
 type Identifier struct {
@@ -43,5 +51,5 @@ func (p *Program) TokenLiteral() string {
 	}
 }
 
-func (i *Identifier) expressionNode() {}
+func (i *Identifier) expressionNode()      {}
 func (i *Identifier) TokenLiteral() string { return i.Token.Literal }
