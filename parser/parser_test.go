@@ -3,6 +3,7 @@ package parser
 import (
 	"monke/ast"
 	"monke/lexer"
+	"monke/token"
 	"testing"
 )
 
@@ -73,8 +74,30 @@ func testLetStatement(t *testing.T, s ast.Statement, name string) bool {
 	return true
 }
 
+func TestString(t *testing.T) {
+    program := &ast.Program{
+        Statements: []ast.Statement{
+            &ast.LetStatement{
+                Token: token.Token{Type: token.LET, Literal: "let"},
+                Name: &ast.Identifier{
+                    Token: token.Token{Type: token.IDENT, Literal: "myVar"},
+                    Value: "myVar",
+                },
+                Value: &ast.Identifier{
+                    Token: token.Token{Type: token.IDENT, Literal: "anotherVar"},
+                    Value: "anotherVar",
+                },
+            },
+        },
+    }
+
+    if program.String() != "let myVar = anotherVar;" {
+        t.Errorf("program.String() wrong. got=%q", program.String())
+    }
+}
+
 func TestRerturnStatement(t *testing.T) {
-	input := `
+    input := `
     return 5;
     return 10;
     return 993322;
@@ -88,7 +111,7 @@ func TestRerturnStatement(t *testing.T) {
 
     if len(program.Statements) != 3 {
         t.Fatalf("program.Statements does not contain 3 statements. got=%d",
-            len(program.Statements))
+        len(program.Statements))
     }
 
     for _, stmt := range program.Statements {
@@ -101,7 +124,7 @@ func TestRerturnStatement(t *testing.T) {
 
         if returnStmt.TokenLiteral() != "return" {
             t.Errorf("returnStmt.TokenLiteral not 'return', got %q",
-                returnStmt.TokenLiteral())
+            returnStmt.TokenLiteral())
         }
     }
 }

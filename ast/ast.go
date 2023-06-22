@@ -106,6 +106,7 @@ type Identifier struct {
 }
 
 func (i *Identifier) String() string { return i.Value }
+func (ls *Identifier) statementNode()       {}
 
 func (p *Program) TokenLiteral() string {
 	if len(p.Statements) > 0 {
