@@ -13,5 +13,6 @@ analyser, which creates tokens from the sequence of input characters;
 # TODO
 - [x] Lexer
 - [ ] Parser
+- [ ] Compiler
 
-# Based on the book: "writing an interpreter in go"
+_Based on the book: "writing an interpreter in go"_
